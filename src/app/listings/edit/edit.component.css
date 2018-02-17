@@ -1,0 +1,14 @@
+div.wrapper {
+  background: #aeaeae;
+  border: 1px solid #333;
+  padding: 1.5em;
+  border-radius: 5px;
+}
+
+div.create-container {
+  border: 1px solid #333;
+  padding: 1em;
+  border-radius: 5px;
+  background: #fff;
+  margin-bottom: 1em;
+}

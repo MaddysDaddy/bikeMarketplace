@@ -1,0 +1,49 @@
+<app-nav></app-nav>
+<div class="section-wrapper">
+  <form>
+    <div class="form-group">
+      <input type="text" class="form-control" name="filter" [(ngModel)]="filter.title" placeholder="Search by bike name">
+    </div>
+  </form>
+  <div class="browse-wrapper">
+    <div class="row" *ngFor="let bike of bikes | search:filter">
+      <div class="col-md-3">
+        <img src="{{ bike.image_url }}" alt="{{ bike.title }}" class="img-fluid">
+      </div>
+
+      <div class="col-md-6">
+        <h3>{{ bike.title }}</h3>
+        <p>{{ bike.description }}</p>
+      </div>
+
+      <div class="col-md-3">
+        <h3>{{ bike.price | currency:'USD' }}</h3>
+        <p>{{ bike.location }}</p>
+        <button class="btn btn-danger" *ngIf="bike._owner._id === currentUserID" (click)="deleteBike(bike._id)">Delete</button>
+        <button class="btn btn-warning" *ngIf="bike._owner._id !== currentUserID" data-toggle="modal" data-target="#contactModal">Contact</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contact Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h5>{{ bike._owner.firstName }}</h5>
+                {{ bike._owner.email }}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

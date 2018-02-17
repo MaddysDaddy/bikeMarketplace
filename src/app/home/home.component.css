@@ -1,0 +1,24 @@
+h1 {
+  margin: 1em 0;
+}
+
+div.bike-wrapper {
+  border: 1px solid #333;
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+div.bike-content {
+  border-left: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

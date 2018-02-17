@@ -1,0 +1,47 @@
+<app-create (newBike)="createBike($event)"></app-create>
+
+
+<div class="wrapper" *ngIf="user">
+  <h3>Edit/Delete Listings</h3>
+  <form (submit)="update($event, bike._id, updateForm)" #updateForm="ngForm" *ngFor="let bike of user.bikes">
+    <div class="create-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <img *ngIf="bike.image_url" src="{{ bike.image_url }}" alt="" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" [(ngModel)]="bike.title" #title="ngModel" class="form-control" value="{{ bike.title }}">
+          </div>
+
+          <div class="form-group">
+            <label for="image_url">Image URL:</label>
+            <input type="text" name="image_url" [(ngModel)]="bike.image_url" #image="ngModel" class="form-control" value="{{ bike.image_url }}">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" cols="30" rows="5" class="form-control" [(ngModel)]="bike.description" #description="ngModel"
+              value="{{bike.description}}"></textarea>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" name="price" class="form-control" [(ngModel)]="bike.price" #price="ngModel" value="{{bike.price}}">
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" name="location" class="form-control" [(ngModel)]="bike.location" #location="ngModel" value="{{bike.location}}">
+          </div>
+
+          <button class="btn btn-primary" type="submit">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+a.nav-link:first-of-type {
+  padding-left: 0;
+}
+
+a.nav-link {
+  border-right: 1px solid #eaeaea;
+}
+
+a.nav-link:last-child {
+  border-right: none;
+}
+
+.nav-item:last-child {
+  margin-left: auto;
+}
